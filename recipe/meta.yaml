@@ -1,5 +1,5 @@
 {% set name = "pybads" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/PyBADS-{{ version }}.tar.gz
-  sha256: 4b924ffa2766d291e1b7f6c53f7cf56b9d8bfb1371565e420f99d09e21ee6820
+  sha256: 9e8a3a3d567331239eff760363e6838fefc8964f8c9b97fc12c37b13d88f5c00
 
 build:
   noarch: python
