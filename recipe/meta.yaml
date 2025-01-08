@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 02467c63e33420d200c588865f40e1abc077a34d2adadd0f78c5f07f3bf1b8bb
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=45
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - cma >=3.1.0
     - corner >=2.2.1
     - dill >=0.3.5.1
@@ -43,6 +43,7 @@ test:
     - python -m pytest  --pyargs pybads --reruns=5 -x -vv
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://acerbilab.github.io/pybads/
